@@ -1,0 +1,43 @@
+const { window, StatusBarAlignment } = require("vscode");
+
+let statusbar = window.createStatusBarItem(StatusBarAlignment.Right, 4.5);
+statusbar.show();
+
+function Init() {
+  Working("loading...");
+  setTimeout(function () {
+    Live();
+  }, 1000);
+}
+
+function Working(workingMsg) {
+  workingMsg = workingMsg || "Working on it...";
+  statusbar.text = `$(pulse)${workingMsg}`;
+  statusbar.tooltip =
+    "In case if it takes long time, try to close all browser window.";
+  statusbar.command = null;
+}
+
+function Live() {
+  statusbar.text = "$(flame) Proxy";
+  statusbar.command = "extension.proxyServer.start";
+  statusbar.tooltip = "Click to run proxy server";
+}
+
+function Offline(port) {
+  statusbar.text = `$(circle-slash) Port : ${port}`;
+  statusbar.command = "extension.proxyServer.stop";
+  statusbar.tooltip = "Click to close server";
+}
+
+function dispose() {
+  statusbar.dispose();
+}
+
+module.exports = {
+  Init,
+  Working,
+  Live,
+  Offline,
+  dispose
+};

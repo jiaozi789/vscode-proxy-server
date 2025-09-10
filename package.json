@@ -1,0 +1,67 @@
+{
+  "name": "proxy",
+  "displayName": "Proxy Server",
+  "description": "Launch a development local Server with proxy feature for static files",
+  "version": "0.1.4",
+  "publisher": "gaogeek",
+  "author": {
+    "name": "gaogeek"
+  },
+  "engines": {
+    "vscode": "^1.35.0"
+  },
+  "keywords": [
+    "proxy server",
+    "server proxy",
+    "static server",
+    "html preview",
+    "live preview",
+    "live reload",
+    "svg preview",
+    "open in browser",
+    "live server",
+    "server",
+    "proxy"
+  ],
+  "preview": false,
+  "galleryBanner": {
+    "color": "#41205f",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.proxyServer.start",
+        "title": "Start Proxy Server",
+        "category": "Proxy Server"
+      },
+      {
+        "command": "extension.proxyServer.stop",
+        "title": "Stop Proxy Server",
+        "category": "Proxy Server"
+      }
+    ]
+  },
+  "dependencies": {
+    "address": "^1.1.2",
+    "chalk": "^4.0.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.19.2",
+    "killable": "^1.0.1",
+    "open": "^7.0.4",
+    "p-retry": "^4.2.0",
+    "portfinder": "^1.0.26",
+    "serve-index": "^1.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/xiaogaofudao/vscode-proxy-server.git"
+  },
+  "icon": "icon.png",
+  "license": "MIT"
+}
