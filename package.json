@@ -60,7 +60,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/xiaogaofudao/vscode-proxy-server.git"
+    "url": "https://github.com/jiaozi789/vscode-proxy-server.git"
   },
   "icon": "icon.png",
   "license": "MIT"

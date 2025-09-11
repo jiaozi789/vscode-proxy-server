@@ -17,6 +17,20 @@
 
 ```javascript
 module.exports = {
+  //设置代理服务器端口，默认5766，如果不指定自动找一个不占用随机端口
+  port: 5766,
+  //设置全局跨域，如果不设置不支持全局跨域
+  global:{
+    response:(req, res, next) => {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+      if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+      }
+      next();
+    }
+  },
   proxy: {
     "/gateway/": {
       target: "http://www.xxx.com",
@@ -25,6 +39,10 @@ module.exports = {
     },
     "/api": {
       target: "http://api.xxx.com",
+      changeOrigin: true
+    },
+    "/": { //如果设置/则按/设置转发，不设置则默认是列表文件页面
+      target: "http://api11.xxx.com",
       changeOrigin: true
     }
   }

@@ -90,9 +90,14 @@ module.exports = function (settings) {
       });
   }
   const app = express();
+  if(settings.global && settings.global.response){
+    app.use(settings.global.response);
+  }
   const contentBase = workspace.workspaceFolders[0].uri.fsPath;
-  app.get("*", express.static(contentBase));
-  app.get("*", serveIndex(contentBase));
+  if(!('/' in settings.oriProxy)){
+    app.get("*", express.static(contentBase));
+    app.get("*", serveIndex(contentBase));
+  }
   setupProxyFeature();
   app.use(compress());
   return killable(app.listen(settings.port));
