@@ -68,14 +68,14 @@ module.exports = {
 		}
 	]
 }
-然后 shif+alt+f9打开Run and Debug，选择Run Extension即可,此时会打开一个新的窗口，可以下断点调试了。
 
 ```
+然后 shif+alt+f9打开Run and Debug，选择Run Extension即可,此时会打开一个新的窗口，可以下断点调试了。
 
 ## 打包方法
 打包方法：
-1、执行npm install vsce -g --save vsce，安装vsce命令。
-2、修改工程中的错误，有任何错误都不能完成打包(将Blob类型改成any)。
-3、删除node_modules文件夹，执行npm install
-4、执行vsce package
-5、根目录会生成一个proxy-version.vsix文件，直接到extensions右侧... Install from VSIX安装即可。
+1. 执行npm install vsce -g --save vsce，安装vsce命令。
+2. 修改工程中的错误，有任何错误都不能完成打包(将Blob类型改成any)。
+3. 删除node_modules文件夹，执行npm install
+4. 执行vsce package
+5. 根目录会生成一个proxy-version.vsix文件，直接到extensions右侧... Install from VSIX安装即可。
